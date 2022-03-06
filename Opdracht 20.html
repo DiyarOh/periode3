@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Opdracht 20</title>
+</head>
+<body>
+<p>Uw huidige BTW percentage is: <b id="uitvoer"></b></p>
+
+<script>
+    BTWinput = prompt("Wat wilt u kopen: Medicijnen, Eten of Overig");
+
+    switch (BTWinput){
+        case "Medicijnen": document.getElementById("uitvoer").innerHTML = "0%";break
+        case "Eten": document.getElementById("uitvoer").innerHTML = "6%";break
+        case "Overig": document.getElementById("uitvoer").innerHTML = "21%";break
+    }
+</script>
+
+</body>
+</html>

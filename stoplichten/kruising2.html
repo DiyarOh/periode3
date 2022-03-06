@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>kruising</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+<form><h1>Stoplicht4.html</h1>
+    <p>Automatisch werkend stoplicht</p>
+    <p>druk op de juiste knop (maar één keer drukken!)</p><input type="button" value="aanzetten"
+                                                                 onclick="aanzetten()"><input type="button"
+                                                                                              value="knipperen"
+                                                                                              onclick="knipperen()"><input
+            type="button" value="uitzetten" onclick="uitzetten()"><img id="stoplicht" src="./verkeer/stoplichtuit.png"
+                                                                       width="20px" height="40px"></form>
+<script>
+    // animatie heet 'werken'
+    var werken;
+    var buitenwerking;
+    var stoplicht = document.getElementById('stoplicht');
+    stoplicht.style.position = 'absolute';
+    stoplicht.style.left = '715px';
+    stoplicht.style.top = '510px';
+
+    function aanzetten() {
+        clearTimeout(buitenwerking);
+        maakRood();
+        werken = setTimeout(maakGroen, 4000);   // na 4 sec (4000 msec) groen maken
+        werken = setTimeout(maakGeel, 8000); // na 8 sec geel maken
+        werken = setTimeout(aanzetten, 10000);
+    } // en na 10 sec opnieuw aanzetten}
+    function knipperen() {
+        clearTimeout(werken);
+        maakGeel();
+        buitenwerking = setTimeout(zetUit, 500);  // na 500 msec uitzetten
+        buitenwerking = setTimeout(knipperen, 1000);
+    } // na 500 msec weer knipperen}
+    function uitzetten() {// deze functie zet de animaties van het stoplicht uit// dat is anders dan dat de functie zetUit() doet
+        zetUit();
+        clearTimeout(buitenwerking);
+        clearTimeout(werken);
+    }
+
+    function maakRood() {
+        stoplicht.src = "./verkeer/stoplichtrood.png";
+    }
+
+    function maakGroen() {
+        stoplicht.src = "./verkeer/stoplichtgroen.png";
+    }
+
+    function maakGeel() {
+        stoplicht.src = "./verkeer/stoplichtgeel.png";
+    }
+
+    function zetUit() {
+        // deze functie laat het plaatje met alle lampjes uit zien.
+        // niet verwarren met de functie uitzetten()
+         stoplicht.src = "./verkeer/stoplichtuit.png";}
+
+</script>
+</body>
+</html>

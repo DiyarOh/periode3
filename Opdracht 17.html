@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Opdracht 17</title>
+</head>
+<body>
+<label for="product">Hoeveel appels:</label>
+<input type="number" id="product">
+<input type="submit" onclick="check()">
+<p id="uitvoer"></p>
+<script>
+    function check(){
+        let product = document.getElementById("product").value;
+        if (product < 100 ){
+            document.getElementById("uitvoer").innerHTML = "Helaas geen korting voor jou"
+        }else{
+            document.getElementById("uitvoer").innerHTML = "U krijgt 10% korting"
+        }
+    }
+</script>
+</body>
+</html>

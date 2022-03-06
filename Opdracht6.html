@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>invoerTafel</title>
+</head>
+<body>
+<h1>Invoer tafel</h1>
+<p>Invoer met behulp van getElementById</p>
+<p>Uitvoer met behulp document.write</p>
+<label for="tafel">Tafel</label>
+<input type="text" id="tafel">
+<button onclick="bereken()">OK</button>
+<br>
+<label for="tafel2">Tafel uitkomst op zelfde pagina</label>
+<input type="text" id="tafel2">
+<button onclick="bereken2()">OK</button>
+<p id="uitkomst">De uitkomst</p>
+<script>
+    function bereken() {
+        var tafel = document.getElementById("tafel").value;
+
+        document.write("<p>1 x" + tafel + "= " + 1 * tafel + "</p>");
+        document.write("<p>2 x" + tafel + "= " + 2 * tafel + "</p>");
+        document.write("<p>3 x" + tafel + "= " + 3 * tafel + "</p>");
+        document.write("<p>4 x" + tafel + "= " + 4 * tafel + "</p>");
+        document.write("<p>5 x" + tafel + "= " + 5 * tafel + "</p>");
+        document.write("<p>6 x" + tafel + "= " + 6 * tafel + "</p>");
+        document.write("<p>7 x" + tafel + "= " + 7 * tafel + "</p>");
+        document.write("<p>8 x" + tafel + "= " + 8 * tafel + "</p>");
+        document.write("<p>9 x" + tafel + "= " + 9 * tafel + "</p>");
+        document.write("<p>10 x" + tafel + "= " + 10 * tafel + "</p>");
+        document.write("<p>11 x" + tafel + "= " + 11 * tafel + "</p>");
+        document.write("<p>12 x" + tafel + "= " + 12 * tafel + "</p>");
+
+
+    }
+
+    // Deze is om de uitkomst op de zelfde pagina te krijgen zonder dat alles word verwijderd.
+    // Want met een document.write() wordt alle bestaande html verwijderd en is de write het enige dat over blijft
+    function bereken2() {
+        var tafel = document.getElementById("tafel2").value;
+        document.getElementById("uitkomst").innerHTML =
+
+            "<p>1 x" + tafel + "= " + 1 * tafel + "</p>" +
+            "<p>2 x" + tafel + "= " + 2 * tafel + "</p>" +
+            "<p>3 x" + tafel + "= " + 3 * tafel + "</p>" +
+            "<p>4 x" + tafel + "= " + 4 * tafel + "</p>" +
+            "<p>5 x" + tafel + "= " + 5 * tafel + "</p>" +
+            "<p>6 x" + tafel + "= " + 6 * tafel + "</p>" +
+            "<p>7 x" + tafel + "= " + 7 * tafel + "</p>" +
+            "<p>8 x" + tafel + "= " + 8 * tafel + "</p>" +
+            "<p>9 x" + tafel + "= " + 9 * tafel + "</p>" +
+            "<p>10 x" + tafel + "= " + 10 * tafel + "</p>" +
+            "<p>11 x" + tafel + "= " + 11 * tafel + "</p>" +
+            "<p>12 x" + tafel + "= " + 12 * tafel + "</p>";
+    }
+
+</script>
+</body>
+</html>

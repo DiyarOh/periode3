@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Opdracht 9</title>
+</head>
+<body>
+<h1>Invoer</h1>
+<p>Invoer met behulp van getElementById()</p>
+<p>Uitvoer met behulp van getElementById()</p>
+
+<label for="naam">Naam</label>
+<input type="text" id="naam">
+<label for="leeftijd">Leeftijd</label>
+<input type="text" id="leeftijd">
+<button onclick="message()">OK</button>
+<p id="uitvoer"></p>
+<script>
+    //invoer
+
+
+    //Uitvoer
+    function message() {
+        var naam = document.getElementById("naam").value;
+        var leeftijd = document.getElementById("leeftijd").value;
+
+
+        document.getElementById("uitvoer").innerHTML =
+            " Je naam is " + naam +
+            " en je bent " + leeftijd + " jaar oud";
+    }
+
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>opdracht 12</title>
+</head>
+<style>
+    body{ font-size: 40px}
+</style>
+<body>
+<label for="aantal">Lengte</label>
+<input type="number"  id="aantal" required>
+
+<label for="prijs">Breedte</label>
+<input type="text"  id="prijs" required>
+<input type="submit"  onclick="reken()">
+
+<p>Lengte</p><br>
+<p id="a">0</p><br>
+<p>Breedte</p><br>
+<p id="b">0</p>
+<p>Totaal</p>
+<br><p id="c">0</p>
+<script>
+
+    function reken(){
+        var lengte = document.getElementById("aantal").value;
+        var breedte = document.getElementById("prijs").value;
+        var totaal = lengte * breedte;
+
+
+        document.getElementById("a").innerHTML =  lengte + "m";
+        document.getElementById("b").innerHTML = breedte +"m";
+        document.getElementById("c").innerHTML = totaal +"vierkante meter";
+    }
+
+
+
+</script>
+</body>
+</html>

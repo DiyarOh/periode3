@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Opdracht 32</title>
+</head>
+<body>
+<div id="container">
+    <label for="naam">Naam?</label>
+    <input type="text" id="naam" required><br>
+    <label for="rekenen">Rekenen?</label>
+    <input type="number" id="rekenen" required><br>
+    <label for="engels">Engels?</label>
+    <input type="number" id="engels" required><br>
+    <label for="wiskunde">Wiskunde?</label>
+    <input type="number" id="wiskunde" required><br>
+    <label for="topo">Topo?</label>
+    <input type="number" id="topo" required><br>
+    <label for="geschied">Geschied?</label>
+    <input type="number" id="geschied" required><br>
+    <label for="frans">Frans?</label>
+    <input type="number" id="frans" required><br>
+    <label for="nederlands">Nederlands?</label>
+    <input type="number" id="nederlands" required><br>
+    <label for="latijns">Latijns?</label>
+    <input type="number" id="latijns" required><br>
+    <input type="submit" onclick="submit()">
+</div>
+<script>
+
+function submit() {
+    let cijfer8 = document.getElementById("latijns").value;
+    console.log(cijfer8);
+if (cijfer8 >= 0){
+    check()
+}
+    function check() {
+        let naam = document.getElementById("naam").value;
+        let cijfer1 = document.getElementById("rekenen").value;
+        let cijfer2 = document.getElementById("engels").value;
+        let cijfer3 = document.getElementById("wiskunde").value;
+        let cijfer4 = document.getElementById("topo").value;
+        let cijfer5 = document.getElementById("geschied").value;
+        let cijfer6 = document.getElementById("frans").value;
+        let cijfer7 = document.getElementById("nederlands").value;
+        let cijfer8 = document.getElementById("latijns").value;
+        let cijfers = +cijfer1 + +cijfer2 + +cijfer3 + +cijfer4 + +cijfer5 + +cijfer6  + +cijfer7 + +cijfer8;
+        let gemiddelde = cijfers / 8;
+        console.log(cijfers)
+
+
+        if (gemiddelde >= 6) {
+            document.getElementById("container").innerHTML =
+                "<p>Dit is het rapport van: " + naam + " </p>" +
+                "<p>Rekenen: " + cijfer1 + "</p>" +
+                "<p>Engels: " + cijfer2 + "</p>" +
+                "<p>Wiskunde: " + cijfer3 + "</p>" +
+                "<p>Topo: " + cijfer4 + "</p>" +
+                "<p>Geschiedenis: " + cijfer5 + "</p>" +
+                "<p>Frans: " + cijfer6 + "</p>" +
+                "<p>Nederlands: " + cijfer7 + "</p>" +
+                "<p>Latijns: " + cijfer8 + "</p>" +
+                "<p>Gemiddelde: " + gemiddelde + "</p>" +
+                "<p>Geslaagd! Hoera!</p>"
+        } else {
+            document.getElementById("container").innerHTML =
+                "<p>Dit is het rapport van: " + naam + " </p>" +
+                "<p>Rekenen: " + cijfer1 + "</p>" +
+                "<p>Engels: " + cijfer2 + "</p>" +
+                "<p>Wiskunde: " + cijfer3 + "</p>" +
+                "<p>Topo: " + cijfer4 + "</p>" +
+                "<p>Geschiedenis: " + cijfer5 + "</p>" +
+                "<p>Frans: " + cijfer6 + "</p>" +
+                "<p>Nederlands: " + cijfer7 + "</p>" +
+                "<p>Latijns: " + cijfer8 + "</p>" +
+                "<p>Gemiddelde: " + gemiddelde + "</p>" +
+                "<p>Wat jammer niet geslaagd :(</p>"
+        }
+    }
+}
+
+</script>
+</body>
+</html>

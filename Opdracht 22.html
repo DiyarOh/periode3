@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Opdracht 22</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Opdracht 21</title>
+    <style>
+        * {
+        }
+        h1{
+            font-size: 19px;
+        }
+
+        .container {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-around;
+            border: 3px solid black;
+        }
+
+        #answer {
+            font-size: 2em;
+        }
+    </style>
+</head>
+<body>
+<label for="choice">Wat wilt u kopen:</label>
+<input type="text" id="choice" required>
+<input type="submit" onclick="activatecode()">
+<div id="question"></div>
+
+<div class="container">
+    <div>
+       <h1>Muur: 25 euro per vierkante meter</h1>
+    </div>
+    <div>
+       <h1>Plafond: 40 euro per vierkante meter</h1>
+    </div>
+
+    <div>
+        <h1> Vloer: 30euro per vierkante meter</h1>
+    </div>
+
+</div>
+<div class="container">
+    <h1>Het antwoord is:</h1>
+    <div id="answer"></div>
+</div>
+<script>
+    // fruits = food
+    function activatecode() {
+        let choice = document.getElementById("choice").value.toLowerCase();
+        let oppervlakte = ["muur", "plafond", "vloer"];
+        if (choice) {
+            if (oppervlakte.includes(choice)) {
+                let Muur = 25;
+                let Plafond = 40;
+                let Vloer = 30;
+                let BTW = 0;
+
+
+                document.getElementById("question").innerHTML = '<label for="lengte">Wat is de lengte?</label> <input type="number" id="lengte" required>' + '<label for="breedte">Wat is de breedte?</label> <input type="number" id="breedte" required>';
+                let lengte = document.getElementById("lengte").value;
+                let breedte = document.getElementById("breedte").value;
+
+                let breed = document.getElementById("breedte");
+
+                breed.onkeyup = calcu
+                function calcu() {
+                    let lengte = document.getElementById("lengte").value;
+                    let breedte = document.getElementById("breedte").value;
+
+                    let breed = document.getElementById("breedte");
+                    console.log(breedte)
+                    switch (choice) {
+                        case "muur":
+                            let a1 = lengte * breedte;
+                            let aa = a1.toFixed(2);
+                            let a2 = aa * Muur;
+                            let a3 = a2.toFixed(2);
+                            document.getElementById("answer").innerHTML = '<p>Met de lengte '+ lengte +'en de breedte '+ breedte +' is de oppervlakte '+ aa +'vierkante meter en het gaat je '+ a3 +'euro kosten. </p>';
+                            break
+                        case "plafond":
+                            let b1 = lengte * breedte;
+                            let bb = b1.toFixed(2)
+                            let b2 = bb * Plafond;
+                            let b3 = b2.toFixed(2);
+
+                            document.getElementById("answer").innerHTML = '<p>Met de lengte '+ lengte +'en de breedte '+ breedte +' is de oppervlakte '+ bb +'vierkante meter en het gaat je '+ b3 +'euro kosten. </p>';
+                            break
+                        case "vloer":
+                            let c1 = lengte * breedte;
+                            let cc = c1.toFixed(2)
+                            let c2 = cc * Vloer;
+                            let c3 = c2.toFixed(2);
+
+
+                            document.getElementById("answer").innerHTML = '<p>Met de lengte '+ lengte +'en de breedte '+ breedte +' is de oppervlakte '+ cc +'vierkante meter en het gaat je '+ c3 +'euro kosten. </p>';
+                            break
+
+                    }
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>
+</body>
+</html>

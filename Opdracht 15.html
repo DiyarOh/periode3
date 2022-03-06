@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Opdracht 15</title>
+</head>
+<body>
+<h1>Leeftijd Control</h1>
+<p><input type="text" id="leeftijd" value="Wat is je leeftijd"></p>
+<p><button onclick="check()">OK</button></p>
+<script>
+
+    function check(){
+        let leeftijd = document.getElementById("leeftijd").value;
+
+        if (leeftijd < 18){
+            document.write("<img src='nix18.png'><br>")
+        }
+    document.write(" dit is het einde van de programma")
+
+    }
+</script>
+</body>
+</html>

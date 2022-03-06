@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Opdracht 13</title>
+</head>
+<body>
+<label for="product1">Appel 3 euro</label>
+<input type="number" id="product1"><br>
+<label for="product2">Mandarijn 5 euro</label>
+<input type="number" id="product2"><br>
+<input type="submit" onclick="reken()"><br>
+<ul>
+    <li id="appel"></li>
+    <li id="mandarijn"></li>
+    <li id="total"></li>
+</ul>
+<script>
+    function reken(){
+        let apple = 3;
+        let mandarijn = 5;
+       let a = document.getElementById("product1").value;
+       let b = document.getElementById("product2").value;
+
+       if (a == null){
+           let a = 0
+       }
+       if (b == null){
+           let b = 0
+       }
+       let appleprice = a * apple;
+       let mandaprice = b * mandarijn;
+       let total = appleprice + mandaprice;
+       document.getElementById("mandarijn").innerHTML = b + " Mandarijn(en) " + mandaprice + " euro";
+       document.getElementById("appel").innerHTML = a + " Appel(s) " + appleprice+ " euro";
+       document.getElementById("total").innerHTML = "Totaal is " + total + " Euro";
+    }
+
+</script>
+</body>
+</html>

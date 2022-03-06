@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>opdracht11</title>
+</head>
+<body>
+
+
+<label for="lengte">Lengte</label>
+<input type="text" name="lengte" id="lengte">
+<label for="breedte">Breedte</label>
+<input type="text" name="breedte" id="breedte">
+<input type="submit" onclick="oppVlak()">
+<script>
+
+
+    function oppVlak(){
+        var lengte = document.getElementById("lengte").value;
+        var breedte = document.getElementById("breedte").value;
+
+        var oppervlakte = lengte * breedte;
+
+        document.write(oppervlakte);
+    }
+
+</script>
+</body>
+</html>

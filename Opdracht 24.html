@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Opdracht 24</title>
+</head>
+<body>
+<button onclick="gooi()">Werp</button>
+<p id="uitvoer">Je hebt nog niks gegooid</p>
+<script>
+    function gooi(){
+        let worp = Math.floor(Math.random() * 6 + 1);
+        document.getElementById("uitvoer").innerHTML = "Je gooide: " + worp;
+    }
+</script>
+</body>
+</html>

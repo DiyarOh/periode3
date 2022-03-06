@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Opdracht 21</title>
+    <style>
+        * {
+        }
+
+        .container {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-around;
+            border: 3px solid black;
+        }
+        #answer{
+            font-size: 3em;
+        }
+    </style>
+</head>
+<body>
+<label for="choice">Wat wilt u kopen:</label>
+<input type="text" id="choice" required>
+<input type="submit" onclick="activatecode()">
+<div id="question"></div>
+
+<div class="container">
+    <div>
+        <h1>0% Btw</h1>
+        <ul>
+            <li>Omeprazole</li>
+            <li>Ibuprofen</li>
+            <li>Diclofenac</li>
+            <li>Paracetamol</li>
+            <li>Antibiotica</li>
+        </ul>
+    </div>
+    <div>
+        <h1>6% Btw</h1>
+        <ul>
+            <li>Apple</li>
+            <li>Banana</li>
+            <li>Orange</li>
+            <li>Pineapple</li>
+            <li>Mango</li>
+        </ul>
+    </div>
+
+    <div>
+        <h1>21% Btw</h1>
+        <ul>
+            <li>IPad</li>
+            <li>Tablet</li>
+            <li>Samsung</li>
+            <li>Lenovo</li>
+            <li>Acer</li>
+        </ul>
+    </div>
+
+</div>
+<div class="container">
+    <div>
+        <h1>BTW Codes:    </h1>
+        <p>• Code 1 is 0%, dat geldt voor medicijnen</p>
+        <p>• Code 2 is 6%, dat geldt voor etenswaren</p>
+        <p>• Code 3 is 21%, dat geldt voor alle andere artikelen</p>
+    </div>
+</div>
+<div class="container">
+    <h1>Het antwoord is:</h1>
+    <div id="answer"></div>
+</div>
+<script>
+    // fruits = food
+    function activatecode() {
+        let choice = document.getElementById("choice").value;
+        let fruits = ["Apple", "Banana", "Orange", "Pineapple", "Mango"];
+        let medicine = ["Omeprazole", "Ibuprofen", "Diclofenac", "Paracetamol", "Antibiotica"];
+        let other = ["IPad", "Tablet", "Samsung", "Lenovo", "Acer"];
+        if (choice) {
+            if (fruits.includes(choice)) {
+                let Apple = 3;
+                let Banana = 1;
+                let Orange = 5;
+                let Pineapple = 4;
+                let Mango = 6;
+                let BTW = 6;
+
+
+                document.getElementById("question").innerHTML = '<label for="aantal">Hoeveel wilt u er hebben?</label> <input type="number" id="aantal" required>';
+                let aantal = document.getElementById("aantal");
+                let getal = 0;
+                aantal.onkeyup = updateGetal;
+
+                function updateGetal() {
+                    let getal = document.getElementById("aantal").value;
+                    console.log(getal)
+
+
+                    switch (choice) {
+                        case "Apple":
+                            let a1 = Apple / 100;
+                            let a2 = 100 + BTW;
+                            let a3 = a2 * a1;
+                            let finalA = getal * a3;
+                            let finalAn = finalA.toFixed(2);
+                            let a4 = getal * Apple;
+                            let a5 = finalAn - a4;
+                            let a6 = a5.toFixed(2);
+
+                            document.getElementById("answer").innerHTML = '<p>' + getal + ' Appels zijn: ' + finalAn + 'euro met ' + BTW + '% BTW en het BTW bedrag is '+ a6 +'euro</p>';
+                            break
+                        case "Banana":
+                            let b1 = Banana / 100;
+                            let b2 = 100 + BTW;
+                            let b3 = b2 * b1;
+                            let finalb = getal * b3;
+                            let finalbn = finalb.toFixed(2);
+
+                            document.getElementById("answer").innerHTML = '<p>' + getal + ' Bananen zijn: ' + finalbn + 'euro met ' + BTW + '% BTW</p>';
+                            break
+                        case "Orange":
+                            let c1 = Orange / 100;
+                            let c2 = 100 + BTW;
+                            let c3 = c2 * c1;
+                            let finalc = getal * c3;
+                            let finalcn = finalc.toFixed(2);
+
+                            document.getElementById("answer").innerHTML = '<p>' + getal + ' Sinasappels zijn: ' + finalcn + 'euro met ' + BTW + '% BTW</p>';
+                            break
+                        case "Pineapple":
+                            let d1 = Pineapple / 100;
+                            let d2 = 100 + BTW;
+                            let d3 = d2 * d1;
+                            let finald = getal * d3;
+                            let finaldn = finald.toFixed(2);
+
+                            document.getElementById("answer").innerHTML = '<p>' + getal + ' Ananassen zijn: ' + finaldn + 'euro met ' + BTW + '% BTW</p>';
+                            break
+                        case "Mango":
+                            let e1 = Mango / 100;
+                            let e2 = 100 + BTW;
+                            let e3 = e2 * e1;
+                            let finale = getal * e3;
+                            let finalen = finale.toFixed(2);
+
+                            document.getElementById("answer").innerHTML = '<p>' + getal + ' Mangos zijn: ' + finalen + 'euro met ' + BTW + '% BTW</p>';
+                            break
+                    }
+                }
+
+            } else if (medicine.includes(choice)) {
+                document.getElementById("question").innerHTML = '<label for="aantal">Hoeveel wilt u er hebben?</label> <input type="number" id="aantal" required>'
+                let Omeprazole = 3;
+                let Ibuprofen = 1;
+                let Diclofenac = 5;
+                let Paracetamol = 4;
+                let Antibiotica = 6;
+                let BTW = 0;
+                let aantal = document.getElementById("aantal");
+                let getal = 0;
+                aantal.onkeyup = updateGetal;
+
+                function updateGetal() {
+                    let getal = document.getElementById("aantal").value;
+                    console.log(getal)
+
+
+                    switch (choice) {
+                        case "Omeprazole":
+                            let a1 = Omeprazole / 100;
+                            let a2 = 100 + BTW;
+                            let a3 = a2 * a1;
+                            let finalA = getal * a3;
+                            let finalAn = finalA.toFixed(2);
+
+                            document.getElementById("answer").innerHTML = '<p>' + getal + ' Pakjes Omeprazole zijn: ' + finalAn + 'euro met ' + BTW + '% BTW</p>';
+                            break
+                        case "Ibuprofen":
+                            let b1 = Ibuprofen / 100;
+                            let b2 = 100 + BTW;
+                            let b3 = b2 * b1;
+                            let finalb = getal * b3;
+                            let finalbn = finalb.toFixed(2);
+
+                            document.getElementById("answer").innerHTML = '<p>' + getal + ' Pakjes Ibuprofen zijn: ' + finalbn + 'euro met ' + BTW + '% BTW</p>';
+                            break
+                        case "Diclofenac":
+                            let c1 = Diclofenac / 100;
+                            let c2 = 100 + BTW;
+                            let c3 = c2 * c1;
+                            let finalc = getal * c3;
+                            let finalcn = finalc.toFixed(2);
+
+                            document.getElementById("answer").innerHTML = '<p>' + getal + ' Pakjes Diclofenac zijn: ' + finalcn + 'euro met ' + BTW + '% BTW</p>';
+                            break
+                        case "Paracetamol":
+                            let d1 = Paracetamol / 100;
+                            let d2 = 100 + BTW;
+                            let d3 = d2 * d1;
+                            let finald = getal * d3;
+                            let finaldn = finald.toFixed(2);
+
+                            document.getElementById("answer").innerHTML = '<p>' + getal + ' Pakjes Paracetamol zijn: ' + finaldn + 'euro met ' + BTW + '% BTW</p>';
+                            break
+                        case "Antibiotica":
+                            let e1 = Antibiotica / 100;
+                            let e2 = 100 + BTW;
+                            let e3 = e2 * e1;
+                            let finale = getal * e3;
+                            let finalen = finale.toFixed(2);
+
+                            document.getElementById("answer").innerHTML = '<p>' + getal + ' Pakjes Antibiotica zijn: ' + finalen + 'euro met ' + BTW + '% BTW</p>';
+                            break
+                    }
+                }
+            } else if (other.includes(choice)) {
+                //"IPad", "Tablet", "Samsung", "Lenovo", "Acer"
+                document.getElementById("question").innerHTML = '<label for="aantal">Hoeveel wilt u er hebben?</label> <input type="number" id="aantal" required>'
+                let IPad = 300;
+                let Tablet = 100;
+                let Samsung = 500;
+                let Lenovo = 400;
+                let Acer = 600;
+                let BTW = 21;
+                let aantal = document.getElementById("aantal");
+                let getal = 0;
+                aantal.onkeyup = updateGetal;
+
+                function updateGetal() {
+                    let getal = document.getElementById("aantal").value;
+                    console.log(getal)
+
+
+                    switch (choice) {
+                        case "IPad":
+                            let a1 = IPad / 100;
+                            let a2 = 100 + BTW;
+                            let a3 = a2 * a1;
+                            let finalA = getal * a3;
+                            let finalAn = finalA.toFixed(2);
+
+                            document.getElementById("answer").innerHTML = '<p>' + getal + ' IPad(s) zijn: ' + finalAn + 'euro met ' + BTW + '% BTW</p>';
+                            break
+                        case "Tablet":
+                            let b1 = Tablet / 100;
+                            let b2 = 100 + BTW;
+                            let b3 = b2 * b1;
+                            let finalb = getal * b3;
+                            let finalbn = finalb.toFixed(2);
+
+                            document.getElementById("answer").innerHTML = '<p>' + getal + ' Tablet(s) zijn: ' + finalbn + 'euro met ' + BTW + '% BTW</p>';
+                            break
+                        case "Samsung":
+                            let c1 = Samsung / 100;
+                            let c2 = 100 + BTW;
+                            let c3 = c2 * c1;
+                            let finalc = getal * c3;
+                            let finalcn = finalc.toFixed(2);
+
+                            document.getElementById("answer").innerHTML = '<p>' + getal + ' Samsung telefoon(s) zijn: ' + finalcn + 'euro met ' + BTW + '% BTW</p>';
+                            break
+                        case "Lenovo":
+                            let d1 = Lenovo / 100;
+                            let d2 = 100 + BTW;
+                            let d3 = d2 * d1;
+                            let finald = getal * d3;
+                            let finaldn = finald.toFixed(2);
+
+                            document.getElementById("answer").innerHTML = '<p>' + getal + ' Lenovo(s) zijn: ' + finaldn + 'euro met ' + BTW + '% BTW</p>';
+                            break
+                        case "Acer":
+                            let e1 = Acer / 100;
+                            let e2 = 100 + BTW;
+                            let e3 = e2 * e1;
+                            let finale = getal * e3;
+                            let finalen = finale.toFixed(2);
+
+                            document.getElementById("answer").innerHTML = '<p>' + getal + ' Acer(s) zijn: ' + finalen + 'euro met ' + BTW + '% BTW</p>';
+                            break
+                    }
+                }
+            } else {
+                document.getElementById("question").innerHTML = '<p>Kies een geldig item</p>'
+            }
+
+        }
+    }
+</script>
+</body>
+</html>

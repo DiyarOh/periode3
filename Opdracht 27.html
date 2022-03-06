@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Opdracht 27</title>
+</head>
+<style>
+    *{
+        overflow: hidden;
+        margin: 0;
+    }
+    .container{
+        height:98vh;
+        background-size: cover;
+        width: 100%;
+        border: 3px solid red;
+    }
+</style>
+
+<body>
+<div class="container" id="container"></div>
+<script>
+    let backgrounds = ["natuur1.jpg", "natuur2.jpg", "natuur3.jpg", "natuur4.jpg", "natuur5.jpg", "natuur6.jpg", "natuur7.jpg", "natuur8.jpeg"];
+    let rand = Math.abs( Math.floor(Math.random()* 9 - 1))
+    let path = "natuur/" + backgrounds[rand]
+    console.log(path)
+    console.log(rand)
+
+
+document.getElementById("container").style.backgroundImage = "url('"+ path +"')";
+</script>
+
+</body>
+</html>

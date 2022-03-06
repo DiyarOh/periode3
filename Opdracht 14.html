@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Opdracht 14</title>
+</head>
+<body>
+<label for="product1">Vriezer 300 euro Excl BTW</label>
+<input type="number" id="product1"><br>
+<label for="product2">Wasmachine 400 euro Excl BTW</label>
+<input type="number" id="product2"><br>
+<input type="submit" onclick="reken()"><br>
+<label for="BTW">Huidige BTW is:</label>
+<input type="text" value="21" id="BTW" readonly>
+<div>
+    <ul>
+        <li id="vriezer"></li>
+        <li id="wasmachine"></li>
+        <li id="noBTW"></li>
+        <li id="btwBedrag"></li>
+        <li id="totaal"></li>
+    </ul>
+</div>
+
+<script>
+    function reken() {
+        let vriezerAantal = document.getElementById("product1").value;
+        let wasAantal = document.getElementById("product2").value;
+        let vriezer = 300;
+        let wasmach = 400;
+        let BTW = document.getElementById("BTW").value;
+        let a = 100
+        let mathBTW = a + parseInt(BTW);
+
+
+
+
+
+        let vriezNoBTW = vriezerAantal * vriezer;
+        let wasNoBTW = wasAantal * wasmach;
+
+        let vriezBTW = vriezNoBTW / 100 * mathBTW;
+        let wasBTW = wasNoBTW / 100 * mathBTW;
+
+        let noBTW = vriezNoBTW + wasNoBTW;
+        let total = vriezBTW + wasBTW;
+        let BTWbedrag = total - noBTW;
+        console.log(mathBTW)
+
+
+        document.getElementById("vriezer").innerHTML = vriezNoBTW + "euro          excl BTW " + vriezBTW + "euro       incl BTW";
+        document.getElementById("wasmachine").innerHTML = wasNoBTW + "euro         excl BTW " + wasBTW + "euro incl BTW";
+        document.getElementById("noBTW").innerHTML = noBTW + "euro Zonder BTW" ;
+        document.getElementById("btwBedrag").innerHTML = BTWbedrag + "euro Is je BTW bedrag";
+        document.getElementById("totaal").innerHTML = "Totaal betaal je " + total + "euro";
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Opdracht 26</title>
+</head>
+<style>
+    img{
+        height: 300px;
+        width: 300px;
+    }
+</style>
+<body>
+<button onclick="gooi()">Werp</button>
+<p id="uitvoer">Je hebt nog niks gegooid</p>
+<script>
+    function gooi(){
+        let worp = Math.floor(Math.random() * 6 + 1);
+        switch (worp){
+            case 1:
+                document.getElementById("uitvoer").innerHTML = "<img src='dobbels/dobbel1.jpg'>"
+                break
+            case 2:
+                document.getElementById("uitvoer").innerHTML = "<img src='dobbels/dobbel2.jpg'>"
+                break
+            case 3:
+                document.getElementById("uitvoer").innerHTML = "<img src='dobbels/dobbel3.jpg'>"
+                break
+            case 4:
+                document.getElementById("uitvoer").innerHTML = "<img src='dobbels/dobbel4.jpg'>"
+                break
+            case 5:
+                document.getElementById("uitvoer").innerHTML = "<img src='dobbels/dobbel5.jpg'>"
+                break
+            case 6:
+                document.getElementById("uitvoer").innerHTML = "<img src='dobbels/dobbel6.jpg'>"
+                break
+        }
+    }
+</script>
+</body>
+</html>
