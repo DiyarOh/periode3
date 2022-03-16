@@ -24,8 +24,10 @@
     <img src="verkeer/stoplichtgroen.png" alt="stoplicht  " class="stoplicht stoplicht3" id="stoplicht3">
     <img src="verkeer/stoplichtrood.png" alt="stoplicht  " class="stoplicht stoplicht4" id="stoplicht4">
 </div>
-<script>
 
+<script>
+    let vDrive = false;
+    let hDrive = false;
     let werken = null;
     let rijden = null;
     let buitenwerking = null;
@@ -38,133 +40,77 @@
     let autoblauw = document.getElementById("autoblauw");
     let autoweer = document.getElementById("autoweer");
     let autogroen = document.getElementById("autogroen");
+    let autoRoodRij = autorood.style.top = "500px"
+    let autoGroenRij = autogroen.style.top = "940px"
+    let autoWeerRij = autoweer.style.left = "700px"
+    let autoBlauwRij = autoblauw.style.left = "1300px"
 
     function aanzetten() {
         clearTimeout(buitenwerking);
         maakRood();
+        starten()
         werken = setTimeout(maakRoodGroen1, 4000);
-        rijden = setTimeout(rijHorizontaal, 4000);
         werken = setTimeout(maakGroenGeel1, 8000);
         werken = setTimeout(maakGeelRood1, 10000);
-        rijden = setTimeout(rijVerticaal, 10000);
         werken = setTimeout(maakGroenGeel2, 18000);
         werken = setTimeout(maakGeelRood2, 19999);
-        rijden = setTimeout(rijHorizontaal, 20000);
         werken = setTimeout(loop, 28000);
     }
-    function loop(){
+
+    function loop() {
         werken = setTimeout(maakRoodGroen1, 4000);
-        rijden = setTimeout(rijHorizontaal, 4000);
         werken = setTimeout(maakGroenGeel1, 8000);
         werken = setTimeout(maakGeelRood1, 10000);
-        rijden = setTimeout(rijVerticaal, 10000);
         werken = setTimeout(maakGroenGeel2, 18000);
         werken = setTimeout(maakGeelRood2, 19999);
-        rijden = setTimeout(rijHorizontaal, 20000);
     }
 
-    function stopall(){
-        clearTimeout(rijden)
-        clearTimeout(buitenwerking);
-        clearTimeout(werken);
-        clearTimeout(aanzetten);
-        clearTimeout(rijden)
-        clearTimeout(buitenwerking);
-        clearTimeout(werken);
-        clearTimeout(aanzetten);
-    }
-    function start(){
-        aanzetten()
-    }
-
-    function reset(){
-        stopall()
-        autorood.style.top = "500px"
-        autogroen.style.top = "940px"
-        autoweer.style.left = "700px"
-        autoblauw.style.left = "1300px"
-        setTimeout(aanzetten, 1000)
-    }
-    function maakRood(){
+    function maakRood() {
         stoplicht1.src = "./verkeer/stoplichtrood.png";
         stoplicht2.src = "./verkeer/stoplichtrood.png";
         stoplicht3.src = "./verkeer/stoplichtrood.png";
         stoplicht4.src = "./verkeer/stoplichtrood.png";
-        clearTimeout(rijden)
-        autorood.style.top = "500px"
-        autogroen.style.top = "940px"
-        autoweer.style.left = "700px"
-        autoblauw.style.left = "1300px"
     }
 
-    function maakRoodGroen1(){
+    function maakRoodGroen1() {
         stoplicht1.src = "./verkeer/stoplichtrood.png";
         stoplicht4.src = "./verkeer/stoplichtrood.png";
         stoplicht2.src = "./verkeer/stoplichtgroen.png";
         stoplicht3.src = "./verkeer/stoplichtgroen.png";
+        hDrive = false;
+        vDrive = true;
     }
 
-    function maakGroenGeel1(){
+    function maakGroenGeel1() {
         stoplicht1.src = "./verkeer/stoplichtrood.png";
         stoplicht4.src = "./verkeer/stoplichtrood.png";
         stoplicht2.src = "./verkeer/stoplichtgeel.png";
         stoplicht3.src = "./verkeer/stoplichtgeel.png";
 
     }
-    function maakGroenGeel2(){
+
+    function maakGroenGeel2() {
         stoplicht1.src = "./verkeer/stoplichtgeel.png";
         stoplicht4.src = "./verkeer/stoplichtgeel.png";
         stoplicht2.src = "./verkeer/stoplichtrood.png";
         stoplicht3.src = "./verkeer/stoplichtrood.png";
-
     }
-    function maakGeelRood1(){
+
+    function maakGeelRood1() {
         stoplicht1.src = "./verkeer/stoplichtgroen.png";
         stoplicht4.src = "./verkeer/stoplichtgroen.png";
         stoplicht2.src = "./verkeer/stoplichtrood.png";
         stoplicht3.src = "./verkeer/stoplichtrood.png";
+        hDrive = true
     }
-    function maakGeelRood2(){
+
+    function maakGeelRood2() {
         stoplicht1.src = "./verkeer/stoplichtrood.png";
         stoplicht4.src = "./verkeer/stoplichtrood.png";
         stoplicht2.src = "./verkeer/stoplichtgroen.png";
         stoplicht3.src = "./verkeer/stoplichtgroen.png";
-    }
-    autorood.style.top = "500px"
-    autogroen.style.top = "940px"
-    autoweer.style.left = "700px"
-    autoblauw.style.left = "1300px"
-    function rijVerticaal(){
-        autorood.style.top = parseInt(autorood.style.top) + 5 + "px";
-        autogroen.style.top = parseInt(autogroen.style.top) - 4 + "px";
-        rijden = setTimeout(rijVerticaal, 10);
-        if(parseInt(autorood.style.top) >= 1200) // als de auto boven van het scherm afrijdt begint hij opnieuw onderop
-        {
-            autorood.style.top='30px';
-        }
-        if(parseInt(autogroen.style.top) < 10) // als de auto boven van het scherm afrijdt begint hij opnieuw onderop
-        {
-            autogroen.style.top='1100px';
-        }
-    }
-
-    function rijHorizontaal(){
-        autorood.style.top = "500px"
-        autogroen.style.top = "940px"
-
-        let stHor = true
-
-        autoblauw.style.left = parseInt(autoblauw.style.left) - 5 + "px";
-        autoweer.style.left = parseInt(autoweer.style.left) + 4 + "px";
-        rijden = setTimeout(rijHorizontaal, 10);
-        if(parseInt(autoblauw.style.left) < 5) // als de auto boven van het scherm afrijdt begint hij opnieuw onderop
-        {
-            autoblauw.style.left = "1900px"
-        }
-        if(parseInt(autoweer.style.left) > 1500) // als de auto boven van het scherm afrijdt begint hij opnieuw onderop
-        {
-            autoweer.style.left = "1px"
-        }
+        hDrive = false;
+        vDrive = true;
     }
 
     function knipperen() {
@@ -172,7 +118,8 @@
         maakGeel();
         buitenwerking = setTimeout(zetUit, 500);  // na 500 msec uitzetten
         buitenwerking = setTimeout(knipperen, 1000);
-    } // na 500 msec weer knipperen}
+    }
+
     function uitzetten() {// deze functie zet de animaties van het stoplicht uit// dat is anders dan dat de functie zetUit() doet
         zetUit();
         clearTimeout(buitenwerking);
@@ -184,6 +131,7 @@
         autoblauw.style.left = "1300px"
 
     }
+
     function zetUit() {
         // deze functie laat het plaatje met alle lampjes uit zien.
         // niet verwarren met de functie uitzetten()
@@ -192,15 +140,24 @@
         stoplicht1.src = "./verkeer/stoplichtuit.png";
         stoplicht2.src = "./verkeer/stoplichtuit.png";
         stoplicht3.src = "./verkeer/stoplichtuit.png";
-        stoplicht4.src = "./verkeer/stoplichtuit.png";}
+        stoplicht4.src = "./verkeer/stoplichtuit.png";
+    }
 
-    function maakGeel() {
-        // deze functie laat het plaatje met alle lampjes uit zien.
-        // niet verwarren met de functie uitzetten()
-        stoplicht1.src = "./verkeer/stoplichtgeel.png";
-        stoplicht2.src = "./verkeer/stoplichtgeel.png";
-        stoplicht3.src = "./verkeer/stoplichtgeel.png";
-        stoplicht4.src = "./verkeer/stoplichtgeel.png";}
+
+    function starten() {
+        if (vDrive === true) {
+            let snelheidV = 0
+        }else {
+            let snelheidV = 5
+
+            autorood.style.top = parseInt(autorood.style.top) + snelheidV + "px";
+            autogroen.style.top = parseInt(autogroen.style.top) - snelheidV + "px";
+        }
+
+        autoblauw.style.left = parseInt(autoblauw.style.left) - snelheidH + "px";
+        autoweer.style.left = parseInt(autoweer.style.left) + snelheidH + "px";
+    }
 </script>
+
 </body>
 </html>
